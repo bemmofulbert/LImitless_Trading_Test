@@ -4,11 +4,7 @@ import {
   APP_INITIALIZER,
 } from '@angular/core';
 import { provideRouter } from '@angular/router';
-import {
-  KeycloakAngularModule,
-  KeycloakBearerInterceptor,
-  KeycloakService,
-} from 'keycloak-angular';
+import { KeycloakBearerInterceptor, KeycloakService } from 'keycloak-angular';
 
 import { routes } from './app.routes';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
