@@ -1,0 +1,28 @@
+<div class="root">
+  <app-user [user]="user"></app-user>
+
+
+<form [formGroup]="formGroup" (submit)="submit($event)">
+  <mat-form-field>
+    <mat-label>Nom Utilisateur: </mat-label>
+    <input matInput name="username" formControlName="username" /><br />
+    @if (!isFieldValid('username')) {
+      <mat-error>invalide</mat-error>
+    }
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Image: </mat-label>
+    <mat-select name="photo" formControlName="photo">
+      <mat-option value="assets/person.png">person.png</mat-option>
+      <mat-option value="assets/world.png">world.png</mat-option>
+      <mat-option value="favicon.ico">favicon.ico</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br /><br />
+  <div class="footer">
+    <button type="button" (click)="navigateBack()" mat-button>Retour</button>
+    <button type="button" *ngIf="userId >= 0" (click)="deleteUser()" mat-flat-button color="warn">Supprimer</button>
+    <button type="submit" [disabled]="formGroup.invalid" mat-flat-button >Enregistrer </button>
+  </div>
+</form>
+</div>
